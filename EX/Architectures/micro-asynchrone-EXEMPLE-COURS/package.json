@@ -1,0 +1,15 @@
+{
+  "name": "micro-asynchrone",
+  "version": "1.0.0",
+  "description": "Exemple de microservices asynchrones avec Kafka (Architecture Event-Driven / Saga)",
+  "scripts": {
+    "start-players": "node players-service/app.js",
+    "start-items": "node items-service/app.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "express": "^5.2.1",
+    "kafkajs": "^2.2.4",
+    "uuid": "^9.0.1"
+  }
+}

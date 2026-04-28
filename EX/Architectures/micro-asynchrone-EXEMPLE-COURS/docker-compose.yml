@@ -1,0 +1,36 @@
+version: '3'
+services:
+  kafka:
+    image: confluentinc/cp-kafka:7.6.0
+    ports:
+      - "9092:9092" # Port accessible depuis l'ordinateur (localhost)
+    environment:
+      # Identifiant unique du serveur dans le cluster
+      KAFKA_NODE_ID: 1
+      
+      # Configuration du réseau (Interne Docker vs Externe Host)
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT'
+      
+      # L'adresse que Kafka communique aux clients pour qu'ils se connectent
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092'
+      
+      # KRaft combine le rôle de Broker (stockage) et Controller (gestion) sans Zookeeper
+      KAFKA_PROCESS_ROLES: 'broker,controller'
+      
+      # chef de cluster
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka:29093'
+      
+      # Les ports réels sur lesquels le processus Kafka écoute
+      KAFKA_LISTENERS: 'PLAINTEXT://0.0.0.0:29092,CONTROLLER://0.0.0.0:29093,PLAINTEXT_HOST://0.0.0.0:9092'
+      
+      KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      
+      # On n'a qu'un seul serveur, donc pas de copie des données (réplication) nécessaire
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      
+      # IMPORTANT : Crée les topics automatiquement s'ils n'existent pas encore
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      
+      # Un ID unique pour identifier le cluster
+      CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
