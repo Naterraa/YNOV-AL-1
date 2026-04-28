@@ -1,0 +1,21 @@
+{
+  "name": "micro-asynchrone",
+  "version": "1.0.0",
+  "description": "Exemple de microservices asynchrones avec Kafka",
+  "main": "index.js",
+  "scripts": {
+    "start-wallet": "node wallet-service/app.js",
+    "start-menu": "node menu-service/app.js",
+    "start-gateway": "node api-gateway/app.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "express": "^5.2.1",
+    "http-proxy-middleware": "^3.0.5",
+    "kafkajs": "^2.2.4",
+    "uuid": "^11.1.0",
+    "@elastic/elasticsearch": "^8.13.0",
+    "winston": "^3.13.0",
+    "winston-elasticsearch": "^0.18.0"
+  }
+}
