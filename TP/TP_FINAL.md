@@ -14,9 +14,9 @@ Le système gère le cycle de vie d'une commande de matériel informatique :
 
 # Modalités
 
-- Travail par groupe de 1 ou 2 étudiants
+- Travail par groupe 2 étudiants
 - Rendu : un lien git par groupe avec README et support de présentation
-- Évaluation : Oral de 5 minutes présentant la démarche, les choix techniques et une démonstration rapide (vous avez le droit à des notes si vous le voulez).
+- Évaluation : Oral de 5 minutes présentant les choix techniques et une démonstration rapide (vous avez le droit à des notes si vous le voulez).
 
 # Travail Demandé
 
